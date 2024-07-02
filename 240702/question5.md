@@ -1,0 +1,27 @@
+### 문제5(**업그레이드 된 아이템 구하기*) LEVEL2***
+
+https://school.programmers.co.kr/learn/courses/30/lessons/273711
+
+```sql
+SELECT B.ITEMID, B.ITEMNAME, B.RARITY
+FROM ITEM_INFO A
+JOIN ITEM_TREE C ON A.ITEMID = C.PARENTITEMID
+JOIN ITEM_INFO B ON B.ITEMID = C.ITEMID
+WHERE A.RARITY = 'RARE'
+ORDER BY B.ITEMID DESC;
+```
+
+```sql
+SELECT B.ITEMID, B.ITEMNAME, B.RARITY
+FROM ITEM_INFO A
+JOIN ITEM_TREE C ON A.ITEMID = C.PARENTITEMID
+JOIN ITEM_INFO B ON B.ITEMID = C.ITEMID
+WHERE A.RARITY = 'RARE'
+ORDER BY B.ITEMID DESCENDING;
+//DESC 대신 DESCENDING 사용
+```
+
+- JOIN
+    - ON을 사용하면 뒤에 조건이 맞는 경우만 JOIN
+    - 같은 필드를 ON 뒤에 다른 조건을 추가해서 다시 추가할 수 있음
+    - SELECT 시 JOIN 된 항목만 사용 가능

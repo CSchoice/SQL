@@ -19,3 +19,6 @@
 - GROUP BY
 - HAVING
 - ASC, DESC
+
+### question5
+- join 활용
