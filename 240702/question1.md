@@ -1,0 +1,35 @@
+### 문제2([***조건에 부합하는 중고거래 댓글 조회하기](https://school.programmers.co.kr/learn/courses/30/lessons/164673)) LEVEL1***
+
+https://school.programmers.co.kr/learn/courses/30/lessons/164673
+
+```sql
+SELECT TITLE, A.BOARD_ID, REPLY_ID, B.WRITER_ID, B.CONTENTS,  DATE_FORMAT(B.CREATED_DATE, '%Y-%m-%d')AS CREATED_DATE
+FROM USED_GOODS_BOARD A, USED_GOODS_REPLY B
+WHERE A.BOARD_ID = B.BOARD_ID
+AND DATE_FORMAT(A.CREATED_DATE, '%Y-%m') = '2022-10'
+ORDER BY B.CREATED_DATE ASC, TITLE ASC
+```
+
+```sql
+//JSQL
+SELECT A.TITLE, A.BOARD_ID, B.REPLY_ID, B.WRITER_ID, B.CONTENTS, TO_CHAR(B.CREATED_DATE, 'YYYY-MM-DD') AS CREATED_DATE
+FROM USED_GOODS_BOARD A
+JOIN USED_GOODS_REPLY B ON A.BOARD_ID = B.BOARD_ID
+WHERE TO_CHAR(A.CREATED_DATE, 'YYYY-MM') = '2022-10'
+ORDER BY B.CREATED_DATE ASC, A.TITLE ASC;
+//- FROM A
+    - JOIN B ON A.ID = B.ID
+    - A에 B를 JOIN 하는데 A.ID와 B.ID가 같은 것을 JOIN 한다
+//
+```
+
+- SELECT A.TITLE
+    - A 테이블에서 TITLE을 가져온다
+- SELECT B.TITLE
+    - B테이블에서 TITLE을 가져온다.
+- ORDER BY A, B
+    - A조건으로 정렬 후 같은 경우 B조건으로 정렬
+- WHERE A.BOARD = B.BOARD
+    - A.BOARD와 B.BOARD가 같은 경우 조회
+- FROM USED_GOODS_BOARD A, USED_GOODS_REPLY B
+    - USED_GOODS_BOARD를 A로 정의
