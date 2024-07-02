@@ -25,3 +25,14 @@ ORDER BY B.ITEMID DESCENDING;
     - ON을 사용하면 뒤에 조건이 맞는 경우만 JOIN
     - 같은 필드를 ON 뒤에 다른 조건을 추가해서 다시 추가할 수 있음
     - SELECT 시 JOIN 된 항목만 사용 가능
+
+```sql
+//재풀이
+SELECT C.ITEM_ID, C.ITEM_NAME, C.RARITY
+FROM ITEM_INFO A
+JOIN ITEM_TREE B ON A.ITEM_ID = B.PARENT_ITEM_ID
+JOIN ITEM_INFO C ON C.ITEM_ID = B.ITEM_ID	
+WHERE A.RARITY = 'RARE'
+ORDER BY ITEM_ID DESC;
+
+```

@@ -29,3 +29,12 @@ ORDER BY USER_ID ASC, PRODUCT_ID DESC;
 - 정렬
     - ASC: 오름차순
     - DESC: 내림차순
+        
+        ```sql
+        //재풀이
+        SELECT USER_ID,	PRODUCT_ID
+        FROM ONLINE_SALE
+        GROUP BY 1, 2
+        HAVING COUNT(PRODUCT_ID) > 1
+        ORDER BY USER_ID, PRODUCT_ID DESC
+        ```
