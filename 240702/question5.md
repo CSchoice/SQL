@@ -24,7 +24,6 @@ ORDER BY B.ITEMID DESCENDING;
 - JOIN
     - ON을 사용하면 뒤에 조건이 맞는 경우만 JOIN
     - 같은 필드를 ON 뒤에 다른 조건을 추가해서 다시 추가할 수 있음
-    - SELECT 시 JOIN 된 항목만 사용 가능
 
 ```sql
 //재풀이
